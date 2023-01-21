@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 function Footer () {
     return (
         <div className={styles.background}>
-            <>{"Made with <3 on Solana"}</>
+            <>{"Possible today, only on Solana"}</>
         </div>
     )
 }

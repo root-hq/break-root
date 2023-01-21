@@ -17,11 +17,13 @@
 .leftMainContainer {
     color: black;
     background-color: red;
+    height: 100%;
 }
 
 .rightMainContainer {
     color: black;
     background-color: yellow;
+    height: 100%;
 }
 
 @media (max-width: 992px) {
