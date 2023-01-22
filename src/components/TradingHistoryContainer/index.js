@@ -21,7 +21,7 @@ function TradingHistoryContainer ({
                         {
                             trades.map((k,v) => {
                                 return (
-                                    <TradeRecord i = {k} key = {v} />
+                                    <TradeRecord key = {v} trade = {k} />
                                 )
                             })
                         }

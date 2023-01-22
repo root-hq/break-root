@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import styles from './App.css';
+import { useState, useEffect, createRef } from 'react';
+import { getRandomFromArray } from "./utils";
 import Header from './components/Header';
 import MainComponent from './components/MainComponent';
 import Footer from './components/Footer';
-import { useState, useEffect, createRef } from "react";
 
 function App() {
 
@@ -16,7 +16,14 @@ function App() {
   }, [mainAppView]);
 
   const handleKeyPress = () => {
-    setTrades(trades => [...trades, trades.length]);
+    const rand = Math.random() * getRandomFromArray([100, 1000, 10_000, 100_000]) * getRandomFromArray([1, 2, 3, 4, 5]);
+    const side = getRandomFromArray([0, 1, 0, 1, 0, 1, 0, 1, 0, 1]);
+    const trade = {
+      size: rand,
+      side: side === 0 ? "BUY" : "SELL"
+    };
+
+    setTrades(trades => [...trades, trade]);
   }
   
   return (
@@ -30,3 +37,4 @@ function App() {
 
 
 export default App;
+

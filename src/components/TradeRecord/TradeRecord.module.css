@@ -1,8 +1,32 @@
 .background {
-    background-color: #e33d3d;
+    display: flex;
+    flex-direction: row;
+}
+
+.backgroundSell {
+    background-color: #27100c;
     width: 100%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 1rem;
-    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    border: 0.01px solid #333333;
+}
+
+/* 27100c */
+
+.backgroundBuy {
+    background-color: #0c271a;
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    border: 0.01px solid #333333;
 }
