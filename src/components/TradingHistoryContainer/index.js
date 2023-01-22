@@ -1,24 +1,32 @@
+import { useEffect, useState } from "react";
+import TradeRecord from "../TradeRecord";
 import styles from "./TradingHistoryContainer.module.css";
 
-
 function TradingHistoryContainer ({
-    count
+    trades
 }) {
-
+    
     return (
         <div className={styles.background}>
             {
-                count === 0
+                trades.length === 0
                 ?
                     <div>
-                        <>Press any keys on your </>
+                        <>{`Press any keys on your  `}</>
                         <i className="fa-regular fa-keyboard"></i>
-                        <> to place random trades</>    
+                        <>{`  to place random trades`}</>    
                     </div>
                 :
-                    <>{count}</>
+                    <div className={styles.tradesContainer}>
+                        {
+                            trades.map((k,v) => {
+                                return (
+                                    <TradeRecord i = {k} key = {v} />
+                                )
+                            })
+                        }
+                    </div>
             }
-
         </div>
     )
 }

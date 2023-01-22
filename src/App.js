@@ -3,11 +3,11 @@ import styles from './App.css';
 import Header from './components/Header';
 import MainComponent from './components/MainComponent';
 import Footer from './components/Footer';
-import { useState, useRef, useEffect, createRef } from "react";
+import { useState, useEffect, createRef } from "react";
 
 function App() {
 
-  const [count, setCount] = useState(0);
+  const [trades, setTrades] = useState([]);
 
   const mainAppView = createRef(null);
 
@@ -16,18 +16,17 @@ function App() {
   }, [mainAppView]);
 
   const handleKeyPress = () => {
-    setCount(count + 1);
-    console.log("count: ", count);
+    setTrades(trades => [...trades, trades.length]);
   }
   
   return (
     <div className={styles.background} tabIndex={0} onKeyPress={handleKeyPress} ref = {mainAppView}>
-      {/* <input type="text" onKeyPress={handleKeyPress} /> */}
       <Header />
-      <MainComponent count = {count}/>
+      <MainComponent key = {trades.length} trades = {trades} />
       <Footer />
     </div>
   );
 }
+
 
 export default App;
