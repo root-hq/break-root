@@ -11,9 +11,9 @@ function TradeRecord ({
 
 
     const loadData = async () => {
-        // const sig = await swapOnRoot(trade);
-        const sig = "fwef";
-        await delay(1_500);
+        const sig = await swapOnRoot(trade);
+        // const sig = "fwef";
+        // await delay(1_500);
         setIsLoading(false);
         trade.signature = sig;
     };
@@ -30,7 +30,7 @@ function TradeRecord ({
             trade.side === "BUY"
             ?
                 <div className={styles.backgroundBuy}>
-                    <div>BUY {trade.size.toFixed(3)} SOL</div>
+                    <div>{`${trade.size.toFixed(3)} USDC --> SOL`}</div>
                     <div>
                         {
                             isLoading
@@ -49,7 +49,7 @@ function TradeRecord ({
                 </div>
             :
                 <div className={styles.backgroundSell}>
-                    <div>SELL {trade.size.toFixed(3)} SOL</div>
+                    <div>{`${trade.size.toFixed(3)} SOL --> USDC`}</div>
                     <div>
                         {
                             isLoading

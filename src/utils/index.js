@@ -94,7 +94,7 @@ export const getLiquidityData = async (depth = 1, step = 12, dollarify = true) =
               }
             },
             title: {
-              text: dollarify ? `Liquidity in Dollar value` : `Liquidity in num. tokens`
+              text: dollarify ? `Liquidity in Dollar value - SOL / USDC` : `Liquidity in num. tokens`
             },
             xaxis: {
               categories: interestedIn["price"],

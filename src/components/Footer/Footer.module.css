@@ -1,9 +1,16 @@
 .background {
     background-color: #000;
     color: #64686c;
-    height: 4vh;
+    height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.solanaLogo {
+    height: 1rem;
+    margin-top: 0.2rem;
+    margin-left: 0.5rem;
+    opacity: 0.8;
 }

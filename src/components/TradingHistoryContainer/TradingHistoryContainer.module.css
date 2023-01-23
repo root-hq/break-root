@@ -9,8 +9,8 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 72vh;
+    max-height: 72vh;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0.5rem;
@@ -19,4 +19,8 @@
 .tradingHistoryTitle {
     margin-bottom: 2rem;
     font-weight: bolder;
+}
+
+.tutorialNote {
+    margin-bottom: 1rem;
 }

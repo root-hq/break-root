@@ -9,13 +9,15 @@ function TradingHistoryContainer ({
     return (
         <div className={styles.background}>
             <div className={styles.tradingHistoryTitle}>Trading History</div>
+            <div className={styles.tutorialNote}>
+                <>{`Press any keys on your  `}</>
+                <i className="fa-regular fa-keyboard"></i>
+                <>{`  to place random trades`}</>    
+            </div>
             {
                 trades.length === 0
                 ?
                     <div>
-                        <>{`Press any keys on your  `}</>
-                        <i className="fa-regular fa-keyboard"></i>
-                        <>{`  to place random trades`}</>    
                     </div>
                 :
                     <div className={styles.tradesContainer}>
