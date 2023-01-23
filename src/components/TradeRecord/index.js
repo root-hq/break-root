@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./TradeRecord.module.css";
-import { swapOnRoot } from "../../utils/index";
+import { delay, swapOnRoot } from "../../utils/index";
 import { TailSpin } from "react-loading-icons";
 
 function TradeRecord ({
@@ -11,7 +11,9 @@ function TradeRecord ({
 
 
     const loadData = async () => {
-        const sig = await swapOnRoot(trade);
+        // const sig = await swapOnRoot(trade);
+        const sig = "fwef";
+        await delay(1_500);
         setIsLoading(false);
         trade.signature = sig;
     };

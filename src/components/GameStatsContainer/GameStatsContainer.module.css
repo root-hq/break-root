@@ -3,3 +3,12 @@
     flex-direction: column;
     align-items: center;
 }
+
+.chartContainer {
+    margin-top: 5rem;
+}
+
+.liquidityChartTitle {
+    margin-bottom: 2rem;
+    font-weight: bolder;
+}
