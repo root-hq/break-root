@@ -8,6 +8,7 @@ function TradingHistoryContainer ({
     
     return (
         <div className={styles.background}>
+            <div className={styles.tradingHistoryTitle}>Trading History</div>
             {
                 trades.length === 0
                 ?

@@ -30,3 +30,18 @@
     border-radius: 0.5rem;
     border: 0.01px solid #333333;
 }
+
+.executedSign {
+    color: #505050;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.executedSign:hover {
+    color: rgb(137, 137, 137);
+    cursor: pointer;
+}
+
+.executedSign:link {
+    color: rgb(137, 137, 137);
+}

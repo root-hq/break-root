@@ -16,11 +16,12 @@ function App() {
   }, [mainAppView]);
 
   const handleKeyPress = () => {
-    const rand = Math.random() * getRandomFromArray([100, 1000, 10_000, 100_000]) * getRandomFromArray([1, 2, 3, 4, 5]);
+    const rand = Math.random() * getRandomFromArray([100, 200, 300, 400, 500, 1000]);
     const side = getRandomFromArray([0, 1, 0, 1, 0, 1, 0, 1, 0, 1]);
     const trade = {
       size: rand,
-      side: side === 0 ? "BUY" : "SELL"
+      side: side === 0 ? "BUY" : "SELL",
+      signature: ""
     };
 
     setTrades(trades => [...trades, trade]);

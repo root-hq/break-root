@@ -9,9 +9,14 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    min-height: 85vh;
-    max-height: 85vh;
+    min-height: 80vh;
+    max-height: 80vh;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0.5rem;
+}
+
+.tradingHistoryTitle {
+    margin-bottom: 2rem;
+    font-weight: bolder;
 }
