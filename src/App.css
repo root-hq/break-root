@@ -38,4 +38,7 @@
     .mainContainer {
         flex-direction: column;
     }
+    .rightMainContainer {
+        display: none;
+    }
 }

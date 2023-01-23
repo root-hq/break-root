@@ -6,9 +6,32 @@
 
 .chartContainer {
     margin-top: 5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .liquidityChartTitle {
     margin-bottom: 2rem;
     font-weight: bolder;
+}
+
+.mobileViewMessage {
+    margin-bottom: 2rem;
+    font-weight: bolder;
+    display: none;
+}
+
+.chart {
+    height: 30vh;
+    width: 60vw;
+}
+
+@media (max-width: 642px) {
+    .mobileViewMessage {
+        display: block;
+    }
+
+    .chartContainer {
+        display: none;
+    }
 }

@@ -41,13 +41,14 @@ function GameStatsContainer() {
 
     return (
         <div className={styles.background}>
+            <div className={styles.mobileViewMessage}>{`Please switch to a larger device :)`}</div>
             <div className={styles.liquidityChartTitle}>Liquidity in the pool</div>
             <div className={styles.chartContainer}>
                 {
                     data && data.series.length > 0
                     ?
                         <div>
-                            <Chart type = {'bar'} series = {data.series} options = {data.options} height = {`500px`} width = {`1000px`}/>
+                            <Chart className={styles.chart} type = {'bar'} series = {data.series} options = {data.options} />
                         </div>
                     :
                         <div>
