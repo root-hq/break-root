@@ -20,7 +20,8 @@ function App() {
   }, [mainAppView]);
 
   const handleKeyPress = () => {
-    const rand = Math.random() * getRandomFromArray([100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000,]);
+    let arr = [...Array(200).keys()];
+    const rand = Math.random() * getRandomFromArray(arr);
     const side = getRandomFromArray([0, 1, 0, 1, 0, 1, 0, 1, 0, 1]);
     const trade = {
       size: rand,

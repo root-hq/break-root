@@ -29,9 +29,9 @@ export const swapOnRoot = async (trade) => {
     }
 }
 
-export const getLiquidityData = async (depth = 0, dollarify = true) => {
+export const getLiquidityData = async (depth = 1, step = 12, dollarify = true) => {
     try {
-        const liquiditySeries = await axios.get(`https://break-root-server.vercel.app/api/get-liquidity-map-truncated?depth=${depth}&step=${8}`);
+        const liquiditySeries = await axios.get(`https://break-root-server.vercel.app/api/get-liquidity-map-truncated?depth=${depth}&step=${step}`);
         
         let interestedIn;
         if(dollarify) {
@@ -99,11 +99,11 @@ export const getLiquidityData = async (depth = 0, dollarify = true) => {
             xaxis: {
               categories: interestedIn["price"],
               title: {
-                text: '% Spread from current price'
+                text: 'Liquidity deployed (in USD)'
               },
               labels: {
                 formatter: function (val) {
-                  return Math.abs(Math.round(val)) + "%"
+                  return "$" + Math.abs(Math.round(val))
                 }
               }
             },
@@ -118,4 +118,13 @@ export const getLiquidityData = async (depth = 0, dollarify = true) => {
         console.log("Something went wrong fetching liquidity map");
         return [];
     }
+}
+
+export const getCurrentPrice = async() => {
+  const response = await axios.get(`https://break-root-server.vercel.app/api/get-current-price/`);
+  const activePriceSlot = response.data;
+  console.log("tickIndex: ", activePriceSlot);
+  const price = Math.pow(1.0001, activePriceSlot);
+
+  return price;
 }

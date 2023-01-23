@@ -1,28 +1,42 @@
 import styles from "./GameStatsContainer.module.css";
 import Chart from "react-apexcharts";
-import { getLiquidityData } from "../../utils";
+import { delay, getCurrentPrice, getLiquidityData } from "../../utils";
 import { useEffect, useState } from "react";
+import ApexCharts from "apexcharts";
 
 function GameStatsContainer() {
 
-    const [data, setData] = useState();
-
-    const fetchLiquidityData = async() => {
-        const data = await getLiquidityData(1, true);
+    const [data, setData] = useState({series: []});
+    let toggle = true;
+    
+    const fetchLiquidityData = async(depth, step, dollarify) => {
+        const data = await getLiquidityData(depth, step, dollarify);
         return data;
     }
 
     useEffect(()=> {
         const setDataState = async () => {
-            const dataVar = await fetchLiquidityData();
-            console.log("receiveD: ", dataVar);
-            setData(dataVar);
+            if(toggle) {
+                console.log("called: ", toggle);
+                const dataVar = await fetchLiquidityData(1, 18, true);
+                setData(dataVar);
+                toggle = !toggle;
+            }
+            else {
+                console.log("called: ", toggle);
+                const dataVar = await fetchLiquidityData(1, 10, true);
+                setData(dataVar);
+                toggle = !toggle;
+            }
         }
 
-        if(data === null || data === undefined) {
+        setDataState();
+
+        const interval = setInterval(() => {
             setDataState();
-            console.log("set: ", data);
-        }
+        }, 5_000);
+        
+        return () => clearInterval(interval);
     }, []);
 
     return (
@@ -30,10 +44,9 @@ function GameStatsContainer() {
             <div className={styles.liquidityChartTitle}>Liquidity in the pool</div>
             <div className={styles.chartContainer}>
                 {
-                    data && data.series
+                    data && data.series.length > 0
                     ?
                         <div>
-                            {/* <Chart series = {data.series} options = {data.options} height = {`400px`} width = {`700px`}/> */}
                             <Chart type = {'bar'} series = {data.series} options = {data.options} height = {`500px`} width = {`1000px`}/>
                         </div>
                     :
