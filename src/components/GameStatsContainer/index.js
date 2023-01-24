@@ -34,7 +34,7 @@ function GameStatsContainer() {
 
         const interval = setInterval(() => {
             setDataState();
-        }, 5_000);
+        }, 8_000);
         
         return () => clearInterval(interval);
     }, []);

@@ -37,13 +37,13 @@ function App() {
       <Header />
       <Container fluid className={"backgroundContainer"}>
         <Row className={"mainContainer"}>
-            <Col md = {9} xs = {12} className={"leftMainContainer"}>
-                <div>
-                    <GameStatsContainer />
-                </div>
-            </Col>
-            <Col md = {3} xs = {12} className={"rightMainContainer"}>
+            <Col md = {3} xs = {12} className={"leftMainContainer"}>
                 <TradingHistoryContainer trades = {trades}/>
+            </Col>
+            <Col md = {9} xs = {12} className={"rightMainContainer"}>
+                <div>
+                  <GameStatsContainer />
+                </div>
             </Col>
         </Row>
       </Container>
